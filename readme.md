@@ -56,7 +56,7 @@ The *FIFO* provides clock domain crossing (if needed) and buffering to prevent d
 - **S2MM (Stream to Memory Map):** *DMA* receives data back from the *FIFO* and writes it back to a different location in the *DDR*.
 
 #### DMA Polling Architecture
-![](/docs/imgs/dma_hp_simple_poll_arch.png)
+![](/docs/imgs/hp-axi/sp_arch.png)
 
 ### Software
 
@@ -151,7 +151,7 @@ xsct% dow -data simple_poll_in_data.bin 0x01100000
 
 Verification via the **Memory Monitor** confirmed that the *DDR* memory starting at *0x01100000* was successfully populated with the contents of `simple_poll_in_data.bin`.
 
-![](/docs/imgs/dow_tx_mm_ss.png)
+![](/docs/imgs/hp-axi/dow_tx_mm_ss.png)
 
 - **Execution and Verification**
 
@@ -159,7 +159,7 @@ Upon resuming execution, the *DMA* engine transferred the data from the source a
 
 Verification via the **Memory Monitor** of the *DDR* memory starting at *0x01300000* matches the expected output, confirming a successful *DMA* transfer 
 
-![](/docs/imgs/dow_rx_mm_ss.png)
+![](/docs/imgs/hp-axi/dow_rx_mm_ss.png)
 
 The *UART* console output confirms a successful match between the sent and received data:
 ```
@@ -208,7 +208,7 @@ mrd -size b -bin -file simple_poll_out_data.bin {0x01300000} 0x20
 
 Verification via the **HxD** of the `simple_poll_out_data.bin` file matches the expected output, confirming a successful *DDR* data extraction.
 
-![](/docs/imgs/mrd_rx_file_ss.png)
+![](/docs/imgs/hp-axi/mrd_rx_file_ss.png)
 
 ### Cache Coherency and Invalidation
 
