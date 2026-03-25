@@ -56,7 +56,7 @@ The *FIFO* provides clock domain crossing (if needed) and buffering to prevent d
 - **S2MM (Stream to Memory Map):** *DMA* receives data back from the *FIFO* and writes it back to a different location in the *DDR*.
 
 #### DMA Polling Architecture
-![](/docs/imgs/hp-axi/sp_arch.png)
+![](/docs/imgs/hp-axi/sp_arch.jpg)
 
 ### Software
 
