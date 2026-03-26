@@ -1,17 +1,17 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
---Date        : Fri Mar 13 04:04:40 2026
+--Date        : Wed Mar 25 21:47:45 2026
 --Host        : Amine_s-Laptop running 64-bit major release  (build 9200)
---Command     : generate_target dma_hp_wrapper.bd
---Design      : dma_hp_wrapper
+--Command     : generate_target dma_hp_sp_wrapper.bd
+--Design      : dma_hp_sp_wrapper
 --Purpose     : IP block netlist
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity dma_hp_wrapper is
+entity dma_hp_sp_wrapper is
   port (
     DDR_addr : inout STD_LOGIC_VECTOR ( 14 downto 0 );
     DDR_ba : inout STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -35,10 +35,10 @@ entity dma_hp_wrapper is
     FIXED_IO_ps_porb : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC
   );
-end dma_hp_wrapper;
+end dma_hp_sp_wrapper;
 
-architecture STRUCTURE of dma_hp_wrapper is
-  component dma_hp is
+architecture STRUCTURE of dma_hp_sp_wrapper is
+  component dma_hp_sp is
   port (
     DDR_cas_n : inout STD_LOGIC;
     DDR_cke : inout STD_LOGIC;
@@ -62,9 +62,9 @@ architecture STRUCTURE of dma_hp_wrapper is
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC
   );
-  end component dma_hp;
+  end component dma_hp_sp;
 begin
-dma_hp_i: component dma_hp
+dma_hp_sp_i: component dma_hp_sp
      port map (
       DDR_addr(14 downto 0) => DDR_addr(14 downto 0),
       DDR_ba(2 downto 0) => DDR_ba(2 downto 0),
